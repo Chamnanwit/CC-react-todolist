@@ -1,18 +1,22 @@
 
 import './App.scss';
 import { FaHome, FaInbox, FaCalendarAlt, FaCalendar, FaChevronDown } from 'react-icons/fa'
+import { Header } from './components/Header'; 
+import { Sidebar } from './components/Sidebar';
 
 function App() {
   return (
   <div className='container'>
-    <header className='header'>
+    <Header />
+    {/* <header className='header'>
       <span>
         <FaHome />
       </span>
       <div>CC-Todoist</div>
-      </header>
+      </header> */}
 
-    <aside className='sidebar'>
+    <Sidebar />
+    {/* <aside className='sidebar'>
       <section className='sidebar__generic'>
         <ul className='generic__lists'>
           <li className='active'>
@@ -59,7 +63,7 @@ function App() {
           
         </ul>
       </section>
-    </aside>
+    </aside> */}
 
     <main className='content'>Content</main>
   </div>
