@@ -3,9 +3,10 @@ import { useState } from 'react';
 import { HiCheck, HiPencil, HiTrash } from 'react-icons/hi';
 import { TodoForm } from './TodoForm';
 
+//todoSchema :  {id:1, task: asdadsasdas, status : false, due_date : 2002-04-20}
 export function TodoItem({todo}) {
     // #1 : Logic,State
-    // Check === DONE
+	// Check === DONE === todo.status == true
     const [isCheck, setIsCheck] = useState(todo.status);
     const [isEdit, setIsEdit] = useState(false);
 
