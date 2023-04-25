@@ -1,5 +1,5 @@
 import styles from './TodoContent.module.scss'
-import { HiCheck , HiPencil , HiTrash } from 'react-icons/fa'
+import { HiCheck , HiPencil , HiTrash } from 'react-icons/hi'
 
 export function TodoContent () {
     const mockTodo = Array.from({length:50},(el,idx)=> idx+1)

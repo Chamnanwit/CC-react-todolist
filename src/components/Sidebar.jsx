@@ -1,6 +1,6 @@
 
 
-import { FaHome, FaInbox, FaCalendarAlt, FaCalendar, FaChevronDown } from 'react-icons/fa';
+import { FaInbox, FaCalendarAlt, FaCalendar, FaChevronDown } from 'react-icons/fa';
 
 export function Sidebar () {
     return (
