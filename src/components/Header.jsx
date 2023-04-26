@@ -1,4 +1,5 @@
 import { FaHome } from 'react-icons/fa';
+import {getFormattedDate} from '../../src/utils/DateUtils'
 
 export function Header () {
     return (
