@@ -4,7 +4,8 @@ import { FaInbox, FaCalendarAlt, FaCalendar, FaChevronDown } from 'react-icons/f
 
 export function Sidebar () {
     return (
-        <aside className='sidebar'>
+    <aside className='sidebar'>
+
       <section className='sidebar__generic'>
         <ul className='generic__lists'>
           <li className='active'>
@@ -25,9 +26,9 @@ export function Sidebar () {
             </span>
             <h6>Next 7 days</h6>
           </li>
-          
         </ul>
       </section>
+
       <section className='sidebar__middle'>
         <span>
           <FaChevronDown />
@@ -48,9 +49,9 @@ export function Sidebar () {
             </span>
             <h6>Project-B</h6>
           </li>
-          
         </ul>
       </section>
+
     </aside>
     )
 }

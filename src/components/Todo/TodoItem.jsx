@@ -4,26 +4,33 @@ import { HiCheck, HiPencil, HiTrash } from 'react-icons/hi';
 import { TodoForm } from './TodoForm';
 
 //todoSchema :  {id:1, task: asdadsasdas, status : false, due_date : 2002-04-20}
-export function TodoItem({todo, onEditTodo}) {
+export function TodoItem({ todo, onEditTodo, onDeleteTodo }) {
+    //prop = { todo:{id:1 task : "AA"}, onEditTodo: fn1, onDeleteTodo: fn2 }
+    // let todo = prop.todo
+    // let onEditTodo = prop.onEditTodo
     // #1 : Logic,State
-	// Check === DONE === todo.status == true
-    const [isCheck, setIsCheck] = useState(todo.status);
+    // Check === DONE === todo.status == true
     const [isEdit, setIsEdit] = useState(false);
+    // console.log(todo.id)
 
     const handleToggleCheck = () => {
-        setIsCheck(!isCheck);
+        // setIsCheck(!isCheck);
+        onEditTodo(todo.id, { status: !todo.status }); // handleEditTodo(todo.id, {status:!todo.status})
     };
 
-	const handleOpenEditMode = () => {
-		setIsEdit(true)
-	}
+    const handleOpenEditMode = () => {
+        setIsEdit(true);
+        console.log(todo.id);
+    };
 
     const handleDeleteTodo = () => {
         console.log('delete');
+        onDeleteTodo(todo.id);
+        // setTodos(currentTodos => currentTodos.filter(todoObj=> todoObj.id !== todo.id))
     };
 
-    let checkboxStyle = isCheck ? styles.checkbox__icon__done : styles.checkbox__icon;
-    let taskStyle = isCheck ? styles.done : '';
+    let checkboxStyle = todo.status ? styles.checkbox__icon__done : styles.checkbox__icon;
+    let taskStyle = todo.status ? styles.done : '';
     // #2 : render
     return (
         <>
@@ -41,15 +48,19 @@ export function TodoItem({todo, onEditTodo}) {
                     <div className={styles.delete__icon} onClick={handleDeleteTodo}>
                         <HiTrash />
                     </div>
+
+                    {/* <div className={styles.delete__icon} onClick={()=> onDeleteTodo(todo.id)}>
+                        <HiTrash />
+                    </div> */}
                 </li>
             ) : (
-                <TodoForm 
-				submitText='Edit task'  
-				onSetIsShowForm={setIsEdit}
-				//oldTask={todo.task}
-                onEditTodo={onEditTodo}
-                todo={todo}
-				/>
+                <TodoForm
+                    submitText='Edit task'
+                    onSetIsShowForm={setIsEdit}
+                    // oldTask={todo.task}
+                    onEditTodo={onEditTodo}
+                    todo={todo}
+                />
             )}
         </>
     );

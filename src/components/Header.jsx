@@ -6,7 +6,7 @@ export function Header () {
             <span>
                 <FaHome />
             </span>
-        <div>CC-Todoist</div>
+        <div>CC-Todoist by MooJobs.</div>
       </header>
     )
 }
