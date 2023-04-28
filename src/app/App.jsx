@@ -16,23 +16,27 @@ function App() {
     useEffect(()=>{
         // Run After DID MOUNT (เกิดแล้ว)
 
-        axios({
-            method: 'get',
-            url : 'http://localhost:8080/todos'
-        }).then(response => {
-            console.log(response.status)
-            // console.log(response)
-            console.log(response.data)
-            // console.log(response.data.todos)
+        async function fetchAllTodo () {
+            try {
+                // let response = await axios({method:'get', url: "http://localhost:8080/todos"})
+                let response = await axios.get("http://localhost:8080/todos")
+                let todoList = response.data.todos;
+                setTodos(todoList)
+                setFilterList(todoList)
+                
+            } catch (error) {
+                console.log(error.response.status)
+            }
+        }
 
-            let todoList = response.data.todos
-            setTodos(todoList)
+        fetchAllTodo()
 
-        } ).catch(err=> {
-            console.log(err.response.status)
-        })
-
+       
     },[])
+
+    useEffect(()=> {
+
+    })
 
     // ## LOGIC : FN ต่างๆ
     // Filter Todo
@@ -71,7 +75,7 @@ function App() {
         <div className='container'>
             <Header onSearchText={handleSearch}/>
             <Sidebar onSelectTab={handleFilterLists} />
-            <TodoContent todos={filterList} setTodos={setTodos} />
+            <TodoContent todos={filterList} setTodos={setTodos} setFilterList={setFilterList}/>
         </div>
     );
 }
